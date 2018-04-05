@@ -1,0 +1,46 @@
+﻿
+<div class="row">
+    <div class="col-sm-12">
+        <h3 class="text-center">Choose your hero</h3>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3">
+        <p class="container-hero-avatar">
+            <span class="hero-avatar flipped {{ goFighters.fighters.chosenHero.id }}"></span>
+            <span class="hero-label">{{ goFighters.fighters.chosenHero.id }}</span>
+        </p>
+    </div>
+    <div class="col-sm-2">
+        <p class="text-center">VS</p>
+    </div>
+    <div class="col-sm-3">
+        <p class="container-hero-avatar pull-right">
+            <span class="hero-avatar {{ goFighters.fighters.opponentHero.id }}"></span>
+            <span class="hero-label">{{ goFighters.fighters.opponentHero.id }}</span>
+        </p>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row" ng-if="chooseHeroes.step == 3">
+    <div class="col-sm-12 text-center">
+        <a ng-click="chooseHeroes.chosedHero(hero.id)" class="clickable">FIGHT</a>
+    </div>
+</div>
+
+<div class="row" ng-if="chooseHeroes.step != 3">
+    <div class="col-sm-12">
+        <a ng-click="chooseHeroes.chosedHero(hero.id)" class="container-hero-avatar clickable" ng-repeat="hero in chooseHeroes.heroes">
+            <span class="hero-avatar {{ hero.id }}"></span>
+            <span class="hero-label">{{ hero.id }}</span>
+        </a>
+    </div>
+</div>

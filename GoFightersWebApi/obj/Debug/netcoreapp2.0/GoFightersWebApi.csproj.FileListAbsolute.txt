@@ -1,0 +1,13 @@
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/bin/Debug/netcoreapp2.0/GoFightersWebApi.deps.json
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/bin/Debug/netcoreapp2.0/GoFightersWebApi.runtimeconfig.json
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/bin/Debug/netcoreapp2.0/GoFightersWebApi.runtimeconfig.dev.json
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/bin/Debug/netcoreapp2.0/GoFightersWebApi.dll
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/bin/Debug/netcoreapp2.0/GoFightersWebApi.pdb
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/bin/Debug/netcoreapp2.0/GoFightersBackEnd.dll
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/bin/Debug/netcoreapp2.0/GoFightersBackEnd.pdb
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/obj/Debug/netcoreapp2.0/GoFightersWebApi.csprojResolveAssemblyReference.cache
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/obj/Debug/netcoreapp2.0/GoFightersWebApi.csproj.CoreCompileInputs.cache
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/obj/Debug/netcoreapp2.0/GoFightersWebApi.AssemblyInfoInputs.cache
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/obj/Debug/netcoreapp2.0/GoFightersWebApi.AssemblyInfo.cs
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/obj/Debug/netcoreapp2.0/GoFightersWebApi.dll
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersWebApi/obj/Debug/netcoreapp2.0/GoFightersWebApi.pdb

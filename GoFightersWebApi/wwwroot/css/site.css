@@ -1,0 +1,214 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.progress {
+    margin: 0px;
+}
+
+.margin-top-8 {
+    margin-top: 8px;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.match-parent {
+    width: 100%;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.progress.reverse .progress-bar {
+    float: right;
+    -webkit-animation-direction: reverse;
+    -moz-animation-direction: reverse;
+    -ms-animation-direction: reverse;
+    -o-animation-direction: reverse;
+    animation-direction: reverse
+}
+
+.container-hero-avatar {
+    position: relative;
+    width: 144px;
+    height: 171px;
+    display: inline-block;
+    box-sizing: border-box;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin: 8px;
+    background: #ffffffc7;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+}
+
+.container-hero-avatar .hero-avatar {
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    top: 0;
+    left: 0;
+}
+
+.container-hero-avatar .hero-avatar.winner {
+    background-position: 144px 0px;
+}
+
+.container-hero-avatar .hero-avatar.defend {
+    background-position: 144px 144px;
+}
+
+.container-hero-avatar .hero-avatar.attack {
+    background-position: 288px 0px;
+}
+
+.container-hero-avatar .hero-avatar.damage {
+    background-position: 576px 144px;
+}
+
+.container-hero-avatar .hero-avatar.guard {
+    background-position: 432px 144px;
+}
+
+.container-hero-avatar .hero-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 144px;
+    text-align: center;
+    color: #2b2b2b;
+    padding: 3px;
+    border-top: 1px solid #797979;
+}
+
+.knight {
+    background-image: url("/images/faces/faceset-knight.png");
+}
+
+.assassin {
+    background-image: url("/images/faces/faceset-assassin.png");
+}
+
+.elf {
+    background-image: url("/images/faces/faceset-elf.png");
+}
+
+.teenager {
+    background-image: url("/images/faces/faceset-teenager.png");
+}
+
+.monk {
+    background-image: url("/images/faces/faceset-monk.png");
+}
+
+.warrior {
+    background-image: url("/images/faces/faceset-warrior.png");
+}
+
+.unknown {
+    background-image: url("/images/faces/unknown-fighter.png")
+}
+
+#arena {
+    min-height: 375px;
+    background: url(/images/arena.jpg) 50% 70%;
+    margin-bottom: 30px;
+    position: relative;
+    border: 2px solid #6b6b6b;
+}
+
+#arena #reset-fight {
+    position: absolute;
+    left: 45%;
+    top: 45%;
+}
+
+#arena #fighter {
+    position: absolute;
+    bottom: 12%;
+    left: 35%;
+}
+
+#arena #fighter-avatar, .hero-avatar.flipped, #fighter {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+#arena #fighter-damage {
+    display: none;
+    position: absolute;
+    bottom: 35%;
+    left: 40%;
+    z-index: 10;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#arena #opponent {
+    position: absolute;
+    bottom: 12%;
+    right: 35%;
+}
+
+#arena #opponent-damage {
+    display: none;
+    position: absolute;
+    bottom: 35%;
+    right: 40%;
+    z-index: 10;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#arena #current-data {
+    width: 40%;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+}
+
+#arena #current-data .progress {
+    border-radius: 0px 0px 4px 0px;
+}
+
+#arena #attack-button {
+    position: absolute;
+    top: 1%;
+    left: 46%;
+}
+
+#arena #opponent-data {
+    width: 40%;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+}
+
+#arena #opponent-data .progress {
+    border-radius: 0px 0px 0px 4px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en-US" ng-app="GoFightersApp", ng-cloak, ng-controller="GoFightersController as goFighters">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GoFighters</title>
+
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/css/site.css" />
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">GoFighters</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container body-content">
+            <div id="main-content" ng-view></div>
+            <hr />
+            <footer>
+                <p>&copy; 2018 - GoFighters</p>
+            </footer>
+        </div>
+
+        <script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+        <script src="/js/site.js"></script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div id="arena">
+        <div id="current-data">
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ goFighters.fighters.chosenHero.currentHealthPoints }}" aria-valuemin="0" aria-valuemax="{{ goFighters.fighters.chosenHero.healthPoints }}" style="width:{{ fight.healthProgressWidth(goFighters.fighters.chosenHero) }}%">
+                    {{ goFighters.fighters.chosenHero.currentHealthPoints + ' / ' + goFighters.fighters.chosenHero.healthPoints }}
+                </div>
+            </div>
+            <div class="container-hero-avatar no-margin">
+                <span id="fighter-avatar" class="hero-avatar fighter {{ goFighters.fighters.chosenHero.avatar }} {{ goFighters.fighters.chosenHero.id }}"></span>
+                <span class="hero-label">{{ goFighters.fighters.chosenHero.id }}</span>
+            </div>
+        </div>
+        <div id="opponent-data">
+            <div class="progress reverse">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ goFighters.fighters.opponentHero.currentHealthPoints }}" aria-valuemin="0" aria-valuemax="{{ goFighters.fighters.opponentHero.healthPoints }}" style="width:{{ fight.healthProgressWidth(goFighters.fighters.opponentHero) }}%">
+                    {{ goFighters.fighters.opponentHero.currentHealthPoints + ' / ' + goFighters.fighters.opponentHero.healthPoints }}
+                </div>
+            </div>
+            <div class="container-hero-avatar no-margin pull-right">
+                <span id="opponent-avatar" class="hero-avatar opponent {{ goFighters.fighters.opponentHero.avatar }} {{ goFighters.fighters.opponentHero.id }}"></span>
+                <span class="hero-label">{{ goFighters.fighters.opponentHero.id }}</span>
+            </div>
+        </div>
+        <span id="fighter-damage">{{ goFighters.fighters.chosenHero.damage }}</span>
+        <span id="opponent-damage">{{ goFighters.fighters.opponentHero.damage }}</span>
+        <canvas id="fighter" width="100" height="100" hero-type="{{goFighters.fighters.chosenHero.id}}"></canvas>
+        <canvas id="opponent" width="100" height="100" hero-type="{{goFighters.fighters.opponentHero.id}}"></canvas>
+
+        <button id="attack-button" type="button" class="btn btn-default" ng-click="fight.attack()" ng-disabled="fight.buttonDisabled" ng-if="!fight.isFightCompleted()">Attack</button>
+        <button id="reset-fight" type="button" class="btn btn-default" ng-click="fight.startNewFight()" ng-if="fight.isFightCompleted()">Start new fight</button>
+    </div>
+</div>
+<script src="/js/fighter_moves.js"></script>
