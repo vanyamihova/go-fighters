@@ -8,3 +8,4 @@
 /Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersBackEnd/obj/Debug/netcoreapp2.0/GoFightersBackEnd.AssemblyInfo.cs
 /Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersBackEnd/obj/Debug/netcoreapp2.0/GoFightersBackEnd.dll
 /Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersBackEnd/obj/Debug/netcoreapp2.0/GoFightersBackEnd.pdb
+/Users/vanyamihova/Personal/UNI/OOP2/GoFighters/GoFightersBackEnd/obj/Debug/netcoreapp2.0/GoFightersBackEnd.csprojResolveAssemblyReference.cache

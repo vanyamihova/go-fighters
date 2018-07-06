@@ -12,7 +12,7 @@ namespace GoFightersBackEnd.Models
     {
         public Elf() : base("elf", 120, 30, 30) { }
 
-        protected override int Defend(int damage)
+        protected override int Defence(int damage)
         {
             bool chance = CalculationUtil.GetChance(10);
             return base.Defend((chance) ? 0 : damage);

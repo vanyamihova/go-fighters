@@ -61,7 +61,7 @@ namespace GoFightersBackEnd.Models
             return !this.currentHealth.IsZero();
         }
 
-		protected virtual int Defend(int damage) {
+        protected virtual int Defence(int damage) {
 			int calculatedArmor = CalculationUtil.CalculatePercentage(this.armor, 80, 120);
 			int calculatedDamage = damage - calculatedArmor;
 			return (calculatedDamage < 0) ? 0 : calculatedDamage;
@@ -76,8 +76,8 @@ namespace GoFightersBackEnd.Models
 			return CalculationUtil.GetRoundPercentage(this.attack, percent);
 		}
 
-		public virtual int Attacked(int damage) {
-            int calculatedDamage = this.Defend(damage);
+		public virtual int Defend(int damage) {
+            int calculatedDamage = this.Defence(damage);
             this.currentHealth.Reduce(calculatedDamage);
             return calculatedDamage;
 		}

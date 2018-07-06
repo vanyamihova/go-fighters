@@ -13,9 +13,9 @@ namespace GoFightersBackEnd.Models
 			
         public Knight() : base("knight", 140, 30, 40) {}
 
-		protected override int Defend(int damage) {
+        protected override int Defence(int damage) {
 			bool chance = CalculationUtil.GetChance(20);
-			return base.Defend((chance) ? 0 : damage);
+            return base.Defence((chance) ? 0 : damage);
 		}
 
 		public override int Attack() {

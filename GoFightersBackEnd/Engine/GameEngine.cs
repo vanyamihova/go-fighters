@@ -64,16 +64,40 @@ namespace GoFightersBackEnd.Engine
             fightFabric = null;
         }
 
-        // Get the chosen hero
-        public Hero GetChosenHero()
-        {
-            return chosenHero;
+        // Returns selected heroes
+        public object[] GetSelectedHeroes() {
+            return new object[] { chosenHero, opponentHero };
         }
 
-        // Get the opponent hero
-        public Hero GetOpponentHero()
+        // Returns the hero whose attack
+        public String GetAttackedId()
         {
-            return opponentHero;
+            return fightFabric.GetAttacked().Id;
+        }
+
+        // Returns the hero whose attack
+        public int GetAttackedHealthPoints()
+        {
+            return fightFabric.GetAttacked().CurrentHealthPoints;
+        }
+
+        // Checks if there is some defeated hero
+        public bool HasWinner()
+        {
+            return !opponentHero.IsAlive() || !chosenHero.IsAlive();
+        }
+
+        // Checks if the opponent is still alive
+        public bool IsOpponentAlive()
+        {
+            return opponentHero.IsAlive();
+        }
+
+        // Returns the hero whose attack
+        public String GetWinnerId()
+        {
+            Hero winner = (chosenHero.IsAlive()) ? chosenHero : opponentHero;
+            return winner.Id;
         }
 
     }

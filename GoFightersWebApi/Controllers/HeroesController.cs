@@ -30,19 +30,12 @@ namespace GoFightersWebApi.Controllers
         {
             string status = "OK";
 
-            if (gameEngine.GetChosenHero() != null && !gameEngine.GetChosenHero().IsAlive()) {
-                status = "OPPONENT_IS_WINNER";
-            }
-
-            if (gameEngine.GetOpponentHero() != null && !gameEngine.GetOpponentHero().IsAlive())
+            if (gameEngine.HasWinner())
             {
-                status = "CHOSEN_IS_WINNER";
+                status = (gameEngine.IsOpponentAlive()) ? "OPPONENT_IS_WINNER" : "CHOSEN_IS_WINNER";
             }
 
-            return new BaseDTO(status, new object[] {
-                gameEngine.GetChosenHero(),
-                gameEngine.GetOpponentHero()
-            });
+            return new BaseDTO(status, gameEngine.GetSelectedHeroes());
         }
 
         // GET api/heroes/attack
@@ -64,70 +57,53 @@ namespace GoFightersWebApi.Controllers
 
         // POST api/heroes
         [HttpPost]
-        public BaseDTO Post([FromBody]ChooseHerosDTO chooseHerosDTO)
+        public BaseDTO Post([FromBody]ChooseHerosDTO chooseHeroesDTO)
         {
-            //
-            if (chooseHerosDTO.ChosenId != null)
+            // Chooses the first hero if needed
+            if (chooseHeroesDTO.ChosenId != null)
             {
-                gameEngine.ChooseHero(chooseHerosDTO.ChosenId);
+                gameEngine.ChooseHero(chooseHeroesDTO.ChosenId);
             }
 
-            //
-            if (chooseHerosDTO.OpponentId != null)
+            // Chooses the opponent hero if needed
+            if (chooseHeroesDTO.OpponentId != null)
             {
-                gameEngine.ChooseOpponentHero(chooseHerosDTO.OpponentId);
+                gameEngine.ChooseOpponentHero(chooseHeroesDTO.OpponentId);
             }
 
-            //
+            // Prepares the fight
             bool ready = gameEngine.PrepareForFight();
-            if (ready) {
-                return new BaseDTO("OK", chooseHerosDTO);
-            }
-            return new BaseDTO("ERROR", chooseHerosDTO);
+            String statusLabel = (ready) ? "OK" : "ERROR";
+
+            // Returns the DTO
+            return new BaseDTO(statusLabel, chooseHeroesDTO);
         }
 
 
         /////////// INTERFACE IMPLEMENTATION
 
-        public void OnOpponentAttackEvent(int damage)
+        public void OnAttackEvent(bool isOpponent, int damage)
         {
             AttackDTO attackDTO = new AttackDTO();
             attackDTO.Damage = damage;
-            attackDTO.AttackedId = gameEngine.GetChosenHero().Id;
-            attackDTO.HealthPoints = gameEngine.GetChosenHero().CurrentHealthPoints;
+            attackDTO.AttackedId = gameEngine.GetAttackedId();
+            attackDTO.HealthPoints = gameEngine.GetAttackedHealthPoints();
 
-            BaseDTO baseDTO = new BaseDTO("CHOSEN_IS_ATTACKED", attackDTO);
+            String statusLabel = (isOpponent) ? "CHOSEN_IS_ATTACKED" : "OPPONENT_IS_ATTACKED";
+
+            BaseDTO baseDTO = new BaseDTO(statusLabel, attackDTO);
             task.SetResult(baseDTO);
         }
 
-        public void OnFighterAttackEvent(int damage)
-        {
-            AttackDTO attackDTO = new AttackDTO();
-            attackDTO.Damage = damage;
-            attackDTO.AttackedId = gameEngine.GetOpponentHero().Id;
-            attackDTO.HealthPoints = gameEngine.GetOpponentHero().CurrentHealthPoints;
-
-            BaseDTO baseDTO = new BaseDTO("OPPONENT_IS_ATTACKED", attackDTO);
-            task.SetResult(baseDTO);
-        }
-
-        public void OnOpponentWin(int damage)
+        public void OnWinningEvent(bool isOpponent, int damage)
         {
             WinnerDTO winnerDTO = new WinnerDTO();
-            winnerDTO.WinnerId = gameEngine.GetOpponentHero().Id;
+            winnerDTO.WinnerId = gameEngine.GetWinnerId();
             winnerDTO.Damage = damage;
 
-            BaseDTO baseDTO = new BaseDTO("OPPONENT_IS_WINNER", winnerDTO);
-            task.SetResult(baseDTO);
-        }
+            String statusLabel = (isOpponent) ? "OPPONENT_IS_WINNER" : "CHOSEN_IS_WINNER";
 
-        public void OnFighterWin(int damage)
-        {
-            WinnerDTO winnerDTO = new WinnerDTO();
-            winnerDTO.WinnerId = gameEngine.GetChosenHero().Id;
-            winnerDTO.Damage = damage;
-
-            BaseDTO baseDTO = new BaseDTO("CHOSEN_IS_WINNER", winnerDTO);
+            BaseDTO baseDTO = new BaseDTO(statusLabel, winnerDTO);
             task.SetResult(baseDTO);
         }
 
