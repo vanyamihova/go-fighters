@@ -21,8 +21,9 @@ When defending, all heroes take damage, reduced randomly with between 80% and 12
 <p>There are at least two types of heroes:</p>
 <dl>
 <dt>Warrior</dt>
+	<dd>Nothing special about him</dd>
 <dt>Knight:</dt>
-	<dd>When defending, has a 20% chance to completely block the attack and receive no
+	<dd>- When defending, has a 20% chance to completely block the attack and receive no
 damage.</dd>
 	<dd>- When attacking, has a 10% chance to do 200% damage.</dd>
 <dt>Assassin:</dt>
